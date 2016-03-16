@@ -16,8 +16,4 @@ RUN apt-get install -y python g++ make nodejs
 
 RUN npm install -g grunt-cli coffee-script bower forever pm2
 
-EXPOSE 22
-EXPOSE 1936
-EXPOSE 1937
-EXPOSE 5432
-EXPOSE 9999
+RUN apt-get autoremove && apt-get autoclean
