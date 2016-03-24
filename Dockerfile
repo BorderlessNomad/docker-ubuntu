@@ -1,20 +1,20 @@
-# docker build -f ubuntu.dockerfile -t ahirmayur/ubuntu .
-# docker run -d -p 22 ahirmayur/ubuntu
-# $ docker port 35a3926b505d 22
-# 0.0.0.0:32771
-# ssh root@192.168.99.100 -p 32771
-# password = root
-
 FROM       ubuntu:latest
 MAINTAINER Mayur Ahir "https://github.com/ahirmayur"
+
+ENV LANG C.UTF-8
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN apt-get update
-RUN apt-get install -y -q apt-utils sudo
+RUN apt-get install -y -q libreadline6 libreadline6-dev software-properties-common sudo apt-utils sudo
+
+RUN add-apt-repository -y ppa:git-core/ppa
+
+RUN apt-get update
 RUN apt-get -y -q dist-upgrade
 
-RUN apt-get install -y -q openssh-server vim wget curl htop
+RUN apt-get install -y -q openssh-server vim wget curl htop git-core zip unzip
+
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:root' |chpasswd
