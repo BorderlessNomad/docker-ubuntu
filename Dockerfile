@@ -2,6 +2,8 @@ FROM       ubuntu:latest
 MAINTAINER Mayur Ahir "https://github.com/ahirmayur"
 
 ENV LANG C.UTF-8
+RUN echo "LC_ALL=en_GB.UTF-8" >> /etc/default/locale
+RUN locale-gen en_GB.UTF-8
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
