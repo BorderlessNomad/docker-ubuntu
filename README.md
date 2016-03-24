@@ -4,9 +4,9 @@ Ubuntu latest version with SSH support
 
 ## Base for these containers:
 
-* [ahirmayur/docker-ubuntu-dev](https://github.com/ahirmayur/docker-ubuntu-dev)
-* [ahirmayur/docker-nginx-php](https://github.com/ahirmayur/docker-nginx-php)
-* [ahirmayur/docker-phpmyadmin](https://github.com/ahirmayur/docker-phpmyadmin)
+* [ahirmayur/ubuntu-dev](https://github.com/ahirmayur/docker-ubuntu-dev)
+* [ahirmayur/nginx-php7](https://github.com/ahirmayur/docker-nginx-php)
+* [ahirmayur/phpmyadmin](https://github.com/ahirmayur/docker-phpmyadmin)
 
 ## Installation
 ```
