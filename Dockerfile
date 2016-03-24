@@ -8,7 +8,7 @@ RUN locale-gen en_GB.UTF-8
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN apt-get update
-RUN apt-get install -y -q libreadline6 libreadline6-dev software-properties-common sudo apt-utils sudo
+RUN apt-get install -y -q libreadline6 libreadline6-dev software-properties-common python-software-properties sudo apt-utils sudo
 
 RUN add-apt-repository -y ppa:git-core/ppa
 
