@@ -15,7 +15,11 @@ RUN ln -sf /bin/true /sbin/initctl
 # Let the conatiner know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
+# Environment Variables
+ENV ROOT_PASSWORD root
+
 RUN apt-get -q update
+RUN apt-get -y -q dist-upgrade
 RUN apt-get install -y libreadline6 libreadline6-dev \
 	software-properties-common python-software-properties \
 	sudo apt-utils
@@ -23,14 +27,13 @@ RUN apt-get install -y libreadline6 libreadline6-dev \
 RUN add-apt-repository -y ppa:git-core/ppa
 
 RUN apt-get -q update
-RUN apt-get -y -q dist-upgrade
 
 RUN apt-get install -y openssh-server vim wget curl \
 	htop git-core zip unzip
 
 RUN mkdir /var/run/sshd
 
-RUN echo 'root:root' |chpasswd
+RUN echo root:${ROOT_PASSWORD} |chpasswd
 
 RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
